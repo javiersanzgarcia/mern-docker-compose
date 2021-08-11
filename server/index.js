@@ -1,19 +1,14 @@
-require('dotenv').config()
-const express = require('express')
-const productRoutes = require('./routes/productRoutes')
-const connectDB = require('./config/db')
-
-connectDB()
-
-const app = express()
-
-app.use(express.json())
-
+"use strict";
+require('dotenv').config();
+var express = require('express');
+var productRoutes = require('./routes/productRoutes');
+var connectDB = require('./config/db');
+connectDB();
+var app = express();
+app.use(express.json());
 // app.get('/', (req, res) => {
 //   res.json({message: 'API running...'})
 // })
-
-app.use('/api/products', productRoutes)
-
-const PORT = process.env.PORT || 5000
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+app.use('/api/products', productRoutes);
+var PORT = process.env.PORT || 5000;
+app.listen(PORT, function () { return console.log("Server running on port " + PORT); });
