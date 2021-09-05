@@ -36,28 +36,32 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 require('dotenv').config();
-var mongoose = require('mongoose');
-var connectDB = function () { return __awaiter(void 0, void 0, void 0, function () {
+var productsData = require('./data/products');
+var connectDB = require('./config/db');
+var Product = require('./models/Product');
+connectDB();
+var importData = function () { return __awaiter(void 0, void 0, void 0, function () {
     var error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, mongoose.connect(process.env.MONGO_URI, {
-                        useNewUrlParser: true,
-                        useUnifiedTopology: true,
-                    })];
+                _a.trys.push([0, 3, , 4]);
+                return [4 /*yield*/, Product.deleteMany({})];
             case 1:
                 _a.sent();
-                console.log('MongoDB connection SUCCESS');
-                return [3 /*break*/, 3];
+                return [4 /*yield*/, Product.insertMany(productsData)];
             case 2:
+                _a.sent();
+                console.log('Data import SUCCESS');
+                process.exit();
+                return [3 /*break*/, 4];
+            case 3:
                 error_1 = _a.sent();
-                console.error('MongoDB connection FAIL');
+                console.error('Error importing data');
                 process.exit(1);
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
         }
     });
 }); };
-module.exports = connectDB;
+importData();

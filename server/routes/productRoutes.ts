@@ -1,4 +1,4 @@
-const express = require('express')
+import express = require('express')
 const router = express.Router()
 
 const {
@@ -9,4 +9,4 @@ const {
 router.get('/', getAllProducts)
 router.get('/:id', getProductById)
 
-module.exports = router
+export default router

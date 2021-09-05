@@ -1,7 +1,7 @@
 require('dotenv').config()
-const express = require('express')
-const productRoutes = require('./routes/productRoutes')
-const connectDB = require('./config/db')
+import express = require('express')
+import productRoutes from './routes/productRoutes'
+import connectDB from './config/db'
 
 connectDB()
 

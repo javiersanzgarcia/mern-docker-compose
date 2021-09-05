@@ -35,17 +35,19 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var Product = require('../models/Product');
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getProductById = exports.getAllProducts = void 0;
+var Product_1 = require("../models/Product");
 var getAllProducts = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var products_1, error_1;
+    var products, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, Product.find({})];
+                return [4 /*yield*/, Product_1.default.find({})];
             case 1:
-                products_1 = _a.sent();
-                res.json(products_1);
+                products = _a.sent();
+                res.json(products);
                 return [3 /*break*/, 3];
             case 2:
                 error_1 = _a.sent();
@@ -56,13 +58,14 @@ var getAllProducts = function (req, res) { return __awaiter(void 0, void 0, void
         }
     });
 }); };
+exports.getAllProducts = getAllProducts;
 var getProductById = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var product, error_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, Product.findById(req.params.id)];
+                return [4 /*yield*/, Product_1.default.findById(req.params.id)];
             case 1:
                 product = _a.sent();
                 res.json(product);
@@ -76,7 +79,4 @@ var getProductById = function (req, res) { return __awaiter(void 0, void 0, void
         }
     });
 }); };
-module.exports = {
-    getAllProducts: getAllProducts,
-    getProductById: getProductById,
-};
+exports.getProductById = getProductById;

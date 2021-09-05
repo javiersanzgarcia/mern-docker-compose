@@ -1,6 +1,7 @@
-const Product = require('../models/Product')
+import {Request, Response} from 'express'
+import Product from '../models/Product'
 
-const getAllProducts = async (req, res) => {
+const getAllProducts = async (req: Request, res: Response) => {
   try {
     const products = await Product.find({})
     res.json(products)
@@ -10,7 +11,7 @@ const getAllProducts = async (req, res) => {
   }
 }
 
-const getProductById = async (req, res) => {
+const getProductById = async (req: Request, res: Response) => {
   try {
     const product = await Product.findById(req.params.id)
     res.json(product)
@@ -20,7 +21,4 @@ const getProductById = async (req, res) => {
   }
 }
 
-module.exports = {
-  getAllProducts,
-  getProductById,
-}
+export {getAllProducts, getProductById}
