@@ -13,6 +13,9 @@ node_modules/
 # production
 /frontend/build
 
+# remove transpiled files
+/server/dist
+
 # misc
 .DS_Store
 # .env
