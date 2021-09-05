@@ -44,7 +44,7 @@ var connectDB = function () { return __awaiter(void 0, void 0, void 0, function 
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, mongoose.connect(process.env.MONGO_URI, {
+                return [4 /*yield*/, mongoose.connect(process.env.MONGO_URI_DOCKER, {
                         useNewUrlParser: true,
                         useUnifiedTopology: true,
                     })];
