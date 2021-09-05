@@ -1,9 +1,12 @@
 import {Request, Response} from 'express'
 import Product from '../models/Product'
 
-const getAllProducts = async (req: Request, res: Response) => {
+const getAllProducts: Function = async (
+  req: Request,
+  res: Response,
+) => {
   try {
-    const products = await Product.find({})
+    const products: string = await Product.find({})
     res.json(products)
   } catch (error) {
     console.error(error)
@@ -11,9 +14,12 @@ const getAllProducts = async (req: Request, res: Response) => {
   }
 }
 
-const getProductById = async (req: Request, res: Response) => {
+const getProductById: Function = async (
+  req: Request,
+  res: Response,
+) => {
   try {
-    const product = await Product.findById(req.params.id)
+    const product: string = await Product.findById(req.params.id)
     res.json(product)
   } catch (error) {
     console.error(error)

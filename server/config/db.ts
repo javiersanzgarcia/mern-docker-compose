@@ -1,9 +1,8 @@
-require('dotenv').config()
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 
-const connectDB = async () => {
+const connectDB: Function = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI_DOCKER, {
+    await mongoose.connect(process.env.MONGO_URI_DOCKER!, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
