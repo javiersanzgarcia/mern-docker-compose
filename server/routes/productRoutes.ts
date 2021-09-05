@@ -1,5 +1,5 @@
 import express = require('express')
-const router = express.Router()
+const router: any = express.Router()
 
 const {
   getAllProducts,
