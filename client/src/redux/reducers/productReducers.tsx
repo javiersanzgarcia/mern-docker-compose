@@ -2,7 +2,7 @@ import * as actionTypes from '../constants/productConstants'
 
 export const getProductsReducer = (
   state = {products: []},
-  action,
+  action: any,
 ) => {
   switch (action.type) {
     case actionTypes.GET_PRODUCTS_REQUEST:
@@ -27,7 +27,7 @@ export const getProductsReducer = (
 
 export const getProductDetailsReducer = (
   state = {product: {}},
-  action,
+  action: any,
 ) => {
   switch (action.type) {
     case actionTypes.GET_PRODUCT_DETAILS_REQUEST:

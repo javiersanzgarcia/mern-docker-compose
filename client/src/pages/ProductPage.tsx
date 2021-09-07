@@ -6,12 +6,12 @@ import {useDispatch, useSelector} from 'react-redux'
 import {getProductDetails} from '../redux/actions/productActions'
 import {addToCart} from '../redux/actions/cartActions'
 
-const ProductPage = ({match, history}) => {
+const ProductPage = (match: any, history: any) => {
   const [quantity, setQuantity] = useState(1)
   const dispatch = useDispatch()
 
   const productDetails = useSelector(
-    (state) => state.getProductDetails,
+    (state: any) => state.getProductDetails,
   )
   const {loading, error, product} = productDetails
 
@@ -63,7 +63,9 @@ const ProductPage = ({match, history}) => {
                 Quantity
                 <select
                   value={quantity}
-                  onChange={(e) => setQuantity(e.target.value)}
+                  onChange={(e) =>
+                    setQuantity(parseInt(e.target.value))
+                  }
                 >
                   {[...Array(product.countInStock).keys()].map(
                     (x) => (
@@ -75,7 +77,10 @@ const ProductPage = ({match, history}) => {
                 </select>
               </p>
               <p>
-                <button type="button" onClick={addToCartHandler}>
+                <button
+                  type="button"
+                  onClick={() => addToCartHandler}
+                >
                   Add To Cart
                 </button>
               </p>

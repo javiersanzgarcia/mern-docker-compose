@@ -10,27 +10,28 @@ import CartItem from '../components/CartItem'
 
 const CartPage = () => {
   const dispatch = useDispatch()
-  const cart = useSelector((state) => state.cart)
+  const cart = useSelector((state: any) => state.cart)
   const {cartItems} = cart
 
-  const qtyChangeHandler = (id, qty) => {
+  const qtyChangeHandler = (id: number, qty: number) => {
     dispatch(addToCart(id, qty))
   }
 
-  const removeCartHandler = (id) => {
+  const removeCartHandler = (id: number) => {
     dispatch(removeFromCart(id))
   }
 
   const getCartCount = () => {
     return cartItems.reduce(
-      (qty, item) => Number(item.quantity) + qty,
+      (qty: number, item: any) => Number(item.quantity) + qty,
       0,
     )
   }
 
   const getCartSubTotal = () => {
     return cartItems.reduce(
-      (price, item) => Number(item.price * item.quantity) + price,
+      (price: any, item: any) =>
+        Number(item.price * item.quantity) + price,
       0,
     )
   }
@@ -45,7 +46,7 @@ const CartPage = () => {
               Your cart is empty <Link to="/">Go Back</Link>
             </div>
           ) : (
-            cartItems.map((item) => (
+            cartItems.map((item: any) => (
               <CartItem
                 key={item.product}
                 item={item}

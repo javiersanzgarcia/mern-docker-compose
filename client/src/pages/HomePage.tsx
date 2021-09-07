@@ -10,7 +10,7 @@ import {getProducts as listProducts} from '../redux/actions/productActions'
 
 const HomePage = () => {
   const dispatch = useDispatch()
-  const getProducts = useSelector((state) => state.getProducts)
+  const getProducts = useSelector((state: any) => state.getProducts)
   const {products, loading, error} = getProducts
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const HomePage = () => {
         ) : error ? (
           <h2>{error}</h2>
         ) : (
-          products.map((product) => (
+          products.map((product: any) => (
             <Product key={product._id} product={product} />
           ))
         )}

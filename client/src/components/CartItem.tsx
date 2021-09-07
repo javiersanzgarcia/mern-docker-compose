@@ -1,7 +1,11 @@
 import './CartItem.css'
 import {Link} from 'react-router-dom'
 
-const CartItem = ({item, qtyChangeHandler, removeCartHandler}) => {
+const CartItem = (
+  item: any,
+  qtyChangeHandler: any,
+  removeCartHandler: any,
+) => {
   return (
     <div className="cartitem">
       <div className="cartitem__image">

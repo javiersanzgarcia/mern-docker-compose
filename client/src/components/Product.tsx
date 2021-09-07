@@ -1,7 +1,8 @@
 import './Product.css'
 import {Link} from 'react-router-dom'
 
-const Product = ({product}) => {
+const Product = (product: any) => {
+  const desc: string = product.description || ''
   return (
     <div className="product">
       <img src={product.imageUrl} alt={product.name} />
@@ -9,7 +10,7 @@ const Product = ({product}) => {
         <p className="info__name">{product.name}</p>
 
         <p className="info__description">
-          {product.description.substring(0, 100)}...
+          {desc && desc.substring(0, 100)}...
         </p>
 
         <p className="info__price">${product.price}</p>
